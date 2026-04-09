@@ -1,4 +1,6 @@
-package PracticaClase;
+package PracticaClase.APP;
+
+import PracticaClase.Registro;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -80,8 +82,8 @@ public class Main {
                 ));
 
 
-        ////6. Verificar si algún registro tiene una temperatura mayor a 30 grados, humedad mayor a 90 y la fecha
-        ////es de hoy. Mostrar un mensaje indicando si hay algún registro que cumple esta condición o no.
+        //6. Verificar si algún registro tiene una temperatura mayor a 30 grados, humedad mayor a 90 y la fecha
+        //es de hoy. Mostrar un mensaje indicando si hay algún registro que cumple esta condición o no.
         boolean existeAlerta = registros.stream()
                 .anyMatch(r -> r.getTemperatura() > 30
                         && r.getHumedad() > 90
@@ -100,14 +102,14 @@ public class Main {
         registros.stream().skip(5).limit(10).forEach(System.out::println);
 
 
-        ////8. Muestra los registros ordenados por fecha (sorted(Comparator))
+        //8. Muestra los registros ordenados por fecha (sorted(Comparator))
 
         registros.stream()
                 .sorted(Comparator.comparing(Registro::getFechaHora))
                 .forEach(System.out::println);
 
 
-        ////9. Cuenta los registros que tengan temperatura mayor a 35 grados (count()).
+        //9. Cuenta los registros que tengan temperatura mayor a 35 grados (count()).
 
         long ContadorRegistros = registros.stream()
                 .filter(r -> r.getTemperatura() > 35.0)
@@ -117,7 +119,7 @@ public class Main {
 
 
 
-//// 10. Calcular la temperatura promedio de todos los registros
+//10. Calcular la temperatura promedio de todos los registros
         OptionalDouble media= registros.stream()
                 .mapToDouble(Registro::getTemperatura)
                 .average();
